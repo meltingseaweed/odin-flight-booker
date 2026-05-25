@@ -7,3 +7,74 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+#   Reset Database, destroy all airports and flights:
+Airport.destroy_all
+# Flight.destroy_all
+
+airports = [
+  { code: 'VIE', city: 'Vienna' },
+  { code: 'BRU', city: 'Brussels' },
+  { code: 'CPH', city: 'Copenhagen' },
+  { code: 'AKJ', city: 'Asahikawa' },
+  { code: 'HEL', city: 'Helsinki' },
+  { code: 'CDG', city: 'Paris (Charles de Gaulle)' },
+  { code: 'OSL', city: 'Oslo' },
+  { code: 'ATH', city: 'Athens' },
+  { code: 'DUB', city: 'Dublin' }
+]
+
+airports.each do |airport|
+  Airport.create!(code: airport[:code], city: airport[:city])
+end
+
+vie = Airport.find_by(code: 'VIE')
+bru = Airport.find_by(code: 'BRU')
+cph = Airport.find_by(code: 'CPH')
+akj = Airport.find_by(code: 'AKJ')
+hel = Airport.find_by(code: 'HEL')
+cdg = Airport.find_by(code: 'CDG')
+osl = Airport.find_by(code: 'OSL')
+ath = Airport.find_by(code: 'ATH')
+dub = Airport.find_by(code: 'DUB')
+
+Flight.create!(
+  departure_airport: vie,
+  arrival_airport: bru,
+  departure_time: DateTime.new(2026, 6, 1, 10, 0, 0),
+  duration: 105 # In minutes
+)
+
+Flight.create!(
+  departure_airport: cdg,
+  arrival_airport: akj,
+  departure_time: DateTime.new(2025, 6, 7, 13, 30, 0),
+  duration: 800
+)
+
+Flight.create!(
+  departure_airport: cph,
+  arrival_airport: dub,
+  departure_time: DateTime.new(2026, 6, 3, 10, 15, 0),
+  duration: 140
+)
+Flight.create!(
+  departure_airport: ath,
+  arrival_airport: hel,
+  departure_time: DateTime.new(2026, 6, 1, 13, 0, 0),
+  duration: 105 # In minutes
+)
+
+Flight.create!(
+  departure_airport: bru,
+  arrival_airport: osl,
+  departure_time: DateTime.new(2026, 6, 4, 11, 30, 0),
+  duration: 800
+)
+
+Flight.create!(
+  departure_airport: dub,
+  arrival_airport: akj,
+  departure_time: DateTime.new(2026, 6, 2, 8, 15, 0),
+  duration: 840
+)

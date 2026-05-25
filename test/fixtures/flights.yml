@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  departure_airport: MyString
+  arrival_airport: MyString
+  start: 2026-05-25 11:09:09
+  duration: 1
+
+two:
+  departure_airport: MyString
+  arrival_airport: MyString
+  start: 2026-05-25 11:09:09
+  duration: 1
