@@ -9,8 +9,14 @@
 #   end
 
 #   Reset Database, destroy all airports and flights:
-Airport.destroy_all
-# Flight.destroy_all
+if Airport.exists?
+  Airport.destroy_all
+end
+if Airport.exists?
+  Flight.destroy_all
+end
+
+
 
 airports = [
   { code: 'VIE', city: 'Vienna' },
@@ -38,43 +44,43 @@ osl = Airport.find_by(code: 'OSL')
 ath = Airport.find_by(code: 'ATH')
 dub = Airport.find_by(code: 'DUB')
 
-Flight.create!(
-  departure_airport: vie,
-  arrival_airport: bru,
-  departure_time: DateTime.new(2026, 6, 1, 10, 0, 0),
-  duration: 105 # In minutes
-)
+# vie.Flight.create!(
+#   departure_airport: vie,
+#   arrival_airport: bru,
+#   start: DateTime.new(2026, 6, 1, 10, 0, 0),
+#   duration: 105 # In minutes
+# )
 
-Flight.create!(
-  departure_airport: cdg,
-  arrival_airport: akj,
-  departure_time: DateTime.new(2025, 6, 7, 13, 30, 0),
-  duration: 800
-)
+# Flight.create!(
+# departure_airport: cdg,
+# arrival_airport: akj,
+# start: DateTime.new(2025, 6, 7, 13, 30, 0),
+# duration: 800
+# )
 
-Flight.create!(
-  departure_airport: cph,
-  arrival_airport: dub,
-  departure_time: DateTime.new(2026, 6, 3, 10, 15, 0),
-  duration: 140
-)
-Flight.create!(
-  departure_airport: ath,
-  arrival_airport: hel,
-  departure_time: DateTime.new(2026, 6, 1, 13, 0, 0),
-  duration: 105 # In minutes
-)
+# Flight.create!(
+#   departure_airport: cph,
+#   arrival_airport: dub,
+#   start: DateTime.new(2026, 6, 3, 10, 15, 0),
+#   duration: 140
+# )
+# Flight.create!(
+#   departure_airport: ath,
+#   arrival_airport: hel,
+#   start: DateTime.new(2026, 6, 1, 13, 0, 0),
+#   duration: 105 # In minutes
+# )
 
-Flight.create!(
-  departure_airport: bru,
-  arrival_airport: osl,
-  departure_time: DateTime.new(2026, 6, 4, 11, 30, 0),
-  duration: 800
-)
+# Flight.create!(
+#   departure_airport: bru,
+#   arrival_airport: osl,
+#   start: DateTime.new(2026, 6, 4, 11, 30, 0),
+#   duration: 800
+# )
 
-Flight.create!(
-  departure_airport: dub,
-  arrival_airport: akj,
-  departure_time: DateTime.new(2026, 6, 2, 8, 15, 0),
-  duration: 840
-)
+# Flight.create!(
+#   departure_airport: dub,
+#   arrival_airport: akj,
+#   start: DateTime.new(2026, 6, 2, 8, 15, 0),
+#   duration: 840
+# )
