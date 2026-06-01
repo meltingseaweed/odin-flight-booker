@@ -18,7 +18,7 @@
 <% end %>
 
 
-<% if @on_the_date != [] %>
+<% unless @on_the_date == [] || @on_the_date == nil %>
     <h2>Available Flights:</h2>
     <%# Try without collection %>
     <%= form_with url: "/booking/new", method: :get do |form| %>
@@ -33,12 +33,13 @@
 
 
 <% end %>
-
-<% if @available_flights != [] %>
+<% if @available_flights == [] %>
+    <p>Sorry there are currently no available flights.<p>
+<% elsif @available_flights != nil %>
     <h2>All available flights from <%= params[:departure_airport] %> are shown below</h2>
     <% @available_flights.each do |flight| %>
         <p>From <%= flight.departure_airport %> to <%= flight.arrival_airport %> at <%= flight.start %></p>
     <% end %>
-    <% else %>
-    <p>Sorry there are currently no available flights.<p>
+<% else %>
+    
 <% end %>
