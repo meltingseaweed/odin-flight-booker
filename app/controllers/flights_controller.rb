@@ -11,6 +11,13 @@ class FlightsController < ApplicationController
     if params[:departure_airport].present?
       display_flights
     end
+    @test = Flight.all
+
+      respond_to do |format|
+        format.html # index.html.erb
+        format.xml  { render xml: @test }
+        format.json { render json: @test }
+      end
   end
 
   private
