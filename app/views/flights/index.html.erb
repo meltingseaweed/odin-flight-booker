@@ -18,16 +18,27 @@
 <% end %>
 
 
-<% if @on_the_date != nil %>
-<h2>Available Flights:</h2>
-    <% @on_the_date.each do |flight| %>
-        <p>From <%= flight.departure_airport %> to <%= flight.arrival_airport %> at <%= flight.start %></p>
+<% if @on_the_date != [] %>
+    <h2>Available Flights:</h2>
+    <%# Try without collection %>
+    <%= form_with url: "/booking/new", method: :get do |form| %>
+        <%= form.hidden_field :flight_id, value: "" %>
+        <%= form.hidden_field :passengers, value: params[:passengers]%>
+        <% @on_the_date.each do |flight| %>
+            <%= form.radio_button :flight_id, "#{flight.id}" %>
+            <%= form.label :flight_id, "Flight from #{flight.departure_airport} to #{flight.arrival_airport} on #{flight.start}" %><br>
+        <% end %>
+        <%= form.submit "Choose this flight" %>
     <% end %>
+
+
 <% end %>
 
-<% if @available_flights != nil %>
+<% if @available_flights != [] %>
     <h2>All available flights from <%= params[:departure_airport] %> are shown below</h2>
     <% @available_flights.each do |flight| %>
         <p>From <%= flight.departure_airport %> to <%= flight.arrival_airport %> at <%= flight.start %></p>
     <% end %>
+    <% else %>
+    <p>Sorry there are currently no available flights.<p>
 <% end %>

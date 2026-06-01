@@ -4,4 +4,6 @@ class Flight < ApplicationRecord
 
   has_many :departing_airports, through: :schedules
   has_many :arriving_airports, through: :arrivals
+
+  has_many :bookings
 end

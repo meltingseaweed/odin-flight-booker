@@ -80,7 +80,23 @@ start: DateTime.new(2025, 6, 7, 13, 30, 0),
 duration: 95
 )
 
+f7 = Flight.create!(
+  departure_airport: hel.code,
+  arrival_airport: bru.code,
+  start: DateTime.new(2026, 6, 1, 15, 0, 0),
+  duration: 155
+)
+
+f8 = Flight.create!(
+  departure_airport: bru.code,
+  arrival_airport: hel.code,
+  start: DateTime.new(2026, 6, 1, 10, 0, 0),
+  duration: 155
+)
+
 bru.schedules.create!(departing_flights: f2)
 bru.schedules.create!(departing_flights: f5)
+bru.schedules.create!(departing_flights: f8)
 bru.arrivals.create!(arriving_flights: f1)
 bru.arrivals.create!(arriving_flights: f6)
+bru.arrivals.create!(arriving_flights: f7)

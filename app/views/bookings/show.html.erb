@@ -1,0 +1,12 @@
+<h1>Your flight to <%=@booking.flight.arrival_airport%> has been booked!<h1>
+
+<h2>Booking Details:</h2>
+<p>Departure date: <%= @booking.flight.start.strftime("%Y/%m/%d") %> at <%= @booking.flight.start.strftime("%H:%M") %></p>
+<p>From: <%= @booking.flight.departure_airport %> --> <%= @booking.flight.arrival_airport %></p>
+<p>Passengers:</p>
+<ul>
+    <% @booking.passengers.each do |p|%>
+    <li>Name: <%= p.name %></li>
+    <% end %>
+</ul>
+<p>We hope you are excited for your flight!</p>
