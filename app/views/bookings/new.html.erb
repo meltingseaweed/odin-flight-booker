@@ -4,17 +4,13 @@
 <p>Arrival Airport: <%= @flight.arrival_airport %> </p>
 <p>Flight duration: <%= @flight.duration %> minutes
 
-<%# Create fields to make the new passengers for this flight %>
 <%= form_with model: @booking do |f| %>
 <%= f.hidden_field :flight_id, value: "#{@flight.id}"%>
-<%# Can we use @booking.passengers.new? or should use build? %>
-    <%# <% @num_of_pass.times do %>
     <%= f.fields_for :passengers do |sub_form| %>
         <%= sub_form.label :name %>
         <%= sub_form.text_field :name, placeholder: "Joe Smith" %>
         <%= sub_form.label :email %>
-        <%= sub_form.text_field :email, placeholder: "friendly@gmail.com" %>
-    <%# <% end %> 
+        <%= sub_form.text_field :email, placeholder: "friendly@gmail.com" %><br><br>
     <% end %>
     <%= f.submit "Create Booking" %>
 <% end %>
