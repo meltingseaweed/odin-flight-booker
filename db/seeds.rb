@@ -94,9 +94,18 @@ f8 = Flight.create!(
   duration: 155
 )
 
+f9 = Flight.create!(
+  departure_airport: akj.code,
+  arrival_airport: bru.code,
+  start: DateTime.new(2026, 7, 20, 10, 0, 0),
+  duration: 700
+)
+
 bru.schedules.create!(departing_flights: f2)
 bru.schedules.create!(departing_flights: f5)
 bru.schedules.create!(departing_flights: f8)
 bru.arrivals.create!(arriving_flights: f1)
 bru.arrivals.create!(arriving_flights: f6)
 bru.arrivals.create!(arriving_flights: f7)
+bru.arrivals.create!(arriving_flights: f9)
+akj.schedules.create!(departing_flights: f9)
