@@ -90,15 +90,15 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:         "smtp.gmail.com",
+    address:         "smtp.sendgrid.net",
     port:            587,
     domain:          "example.com",
-    user_name:       ENV["EMAIL_ACCOUNT"],
-    password:        ENV["EMAIL_PASSWORD"],
+    user_name:       ENV["USER_NAME"],
+    password:        ENV["PASSWORD"],
     authentication:  "plain",
     enable_starttls: true,
     open_timeout:    5,
     read_timeout:    5 }
 
-  config.action_mailer.default_url_options = { hots: "https://odin-flight-booker-ipe5.onrender.com" }
+  config.action_mailer.default_url_options = { host: "https://odin-flight-booker-ipe5.onrender.com" }
 end
