@@ -10,6 +10,7 @@
         <%= form_with model: @booking do |f| %>
         <%= f.hidden_field :flight_id, value: "#{@flight.id}"%>
             <%= f.fields_for :passengers do |sub_form| %>
+                <%= render partial: 'passenger_fields', locals: { sub_form: sub_form }  %>
                 <%# <div data-dynamic-form-target="first">
                 <%# <%= render partial: 'passenger_fields', locals: { sub_form: sub_form } %>  
                 <%# </div> %> 
