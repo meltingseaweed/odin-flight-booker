@@ -11,9 +11,6 @@
         <%= f.hidden_field :flight_id, value: "#{@flight.id}"%>
             <%= f.fields_for :passengers do |sub_form| %>
                 <%= render partial: 'passenger_fields', locals: { sub_form: sub_form }  %>
-                <%# <div data-dynamic-form-target="first">
-                <%# <%= render partial: 'passenger_fields', locals: { sub_form: sub_form } %>  
-                <%# </div> %> 
                 <div data-dynamic-form-target="container"></div>
                 <template data-dynamic-form-target="template">
                     <%= f.fields_for :passengers, Passenger.new, child_index: 'NEW_RECORD' do |sub_form| %>
