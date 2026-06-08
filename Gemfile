@@ -18,6 +18,8 @@ gem "stimulus-rails"
 gem "jbuilder"
 # Add letter opener for testing emails
 gem "letter_opener", group: :development
+# Add figaro for credentials
+gem "figaro"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"

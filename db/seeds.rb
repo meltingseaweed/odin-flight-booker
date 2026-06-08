@@ -21,7 +21,6 @@ akj = Airport.create!(code: 'AKJ', city: 'Asahikawa')
 hel = Airport.create!(code: 'HEL', city: 'Helsinki')
 cdg = Airport.create!(code: 'CDG', city: 'Paris (Charles de Gaulle)')
 dub = Airport.create!(code: 'DUB', city: 'Dublin')
-airports = [ bru, akj, hel, cdg, dub ]
 
 f1 = Flight.create!(
   departure_airport: hel.code,
@@ -87,11 +86,11 @@ f9 = Flight.create!(
   duration: 700
 )
 
-bru.schedules.create!(departing_flights: f2)
-bru.schedules.create!(departing_flights: f5)
-bru.schedules.create!(departing_flights: f8)
-bru.arrivals.create!(arriving_flights: f1)
-bru.arrivals.create!(arriving_flights: f6)
-bru.arrivals.create!(arriving_flights: f7)
-bru.arrivals.create!(arriving_flights: f9)
-akj.schedules.create!(departing_flights: f9)
+# bru.schedules.create!(departing_flights: f2)
+# bru.schedules.create!(departing_flights: f5)
+# bru.schedules.create!(departing_flights: f8)
+# bru.arrivals.create!(arriving_flights: f1)
+# bru.arrivals.create!(arriving_flights: f6)
+# bru.arrivals.create!(arriving_flights: f7)
+# bru.arrivals.create!(arriving_flights: f9)
+# akj.schedules.create!(departing_flights: f9)
