@@ -12,7 +12,7 @@
 if Airport.exists?
   Airport.destroy_all
 end
-if Airport.exists?
+if Flight.exists?
   Flight.destroy_all
 end
 
