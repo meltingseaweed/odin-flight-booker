@@ -16,26 +16,12 @@ if Airport.exists?
   Flight.destroy_all
 end
 
-
-
-airports = [
-  { code: 'BRU', city: 'Brussels' },
-  { code: 'AKJ', city: 'Asahikawa' },
-  { code: 'HEL', city: 'Helsinki' },
-  { code: 'CDG', city: 'Paris (Charles de Gaulle)' },
-  { code: 'DUB', city: 'Dublin' }
-]
-
-airports.each do |airport|
-  Airport.create!(code: airport[:code], city: airport[:city])
-end
-
-bru = Airport.find_by(code: 'BRU')
-akj = Airport.find_by(code: 'AKJ')
-hel = Airport.find_by(code: 'HEL')
-cdg = Airport.find_by(code: 'CDG')
-dub = Airport.find_by(code: 'DUB')
-
+bru = Airport.create!(code: 'BRU', city: 'Brussels')
+akj = Airport.create!(code: 'AKJ', city: 'Asahikawa')
+hel = Airport.create!(code: 'HEL', city: 'Helsinki')
+cdg = Airport.create!(code: 'CDG', city: 'Paris (Charles de Gaulle)')
+dub = Airport.create!(code: 'DUB', city: 'Dublin')
+airports = [ bru, akj, hel, cdg, dub ]
 
 f1 = Flight.create!(
   departure_airport: hel.code,
