@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
   def index
+    Rails.application.load_seed
     @all_flights = Flight.all
     @all_airports = Airport.all
     @all_arrivals = Arrival.all
