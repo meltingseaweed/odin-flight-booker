@@ -32,7 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Make template changes take effect immediately.
   config.action_mailer.perform_caching = false
@@ -77,6 +77,18 @@ Rails.application.configure do
   # config.generators.apply_rubocop_autocorrect_after_generate!
 
   # Configure preview emails with letter_opener gem
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address:         "smtp.gmail.com",
+  port:            587,
+  domain:          "example.com",
+  user_name:       ENV["MAIL_USER"],
+  password:        ENV["MAIL_PASS"],
+  authentication:  "plain",
+  enable_starttls: true,
+  open_timeout:    5,
+  read_timeout:    5 }
 end

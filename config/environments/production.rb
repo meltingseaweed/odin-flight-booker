@@ -54,9 +54,9 @@ Rails.application.configure do
   config.active_job.queue_adapter = :solid_queue
   config.solid_queue.connects_to = { database: { writing: :queue } }
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+   # Ignore bad email addresses and do not raise email delivery errors.
+   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
+   config.action_mailer.raise_delivery_errors = true
 
   # Set host to be used by links generated in mailer templates.
   # config.action_mailer.default_url_options = { host: "example.com" }
@@ -92,13 +92,12 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:         "smtp.sendgrid.net",
     port:            587,
-    domain:          "example.com",
+    domain:          "gmail.com",
     user_name:       ENV["USER_NAME"],
     password:        ENV["PASSWORD"],
     authentication:  "plain",
-    enable_starttls: true,
-    open_timeout:    5,
-    read_timeout:    5 }
+    enable_starttls: true
+    }
 
   config.action_mailer.default_url_options = { host: "https://odin-flight-booker-ipe5.onrender.com" }
 end
