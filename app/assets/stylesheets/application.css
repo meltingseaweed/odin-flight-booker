@@ -8,3 +8,11 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+.hidden {
+    display: none;
+}
+
+.message {
+    color: red;
+    font-style: italic;
+}

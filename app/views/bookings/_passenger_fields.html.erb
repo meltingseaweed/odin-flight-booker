@@ -1,0 +1,8 @@
+<div data-dynamic-form-target="row">        
+        <%= sub_form.label :name %> 
+        <%= sub_form.text_field :name, placeholder: "Joe Smith" %> 
+        <%= sub_form.label :email %> 
+        <%= sub_form.text_field :email, placeholder: "friendly@gmail.com" %>
+        <%= sub_form.hidden_field :_destroy, data: { dynamic_form_target: "destroy" } %>
+        <button data-action="click->dynamic-form#remove">Remove passenger</button><br>
+</div>
